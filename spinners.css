@@ -1,0 +1,91 @@
+.spinner {
+  width: 5em;
+  height: 5em;
+  display: inline-block;
+  position: relative;
+  perspective: 100px;
+  --spinner-color: red;
+}
+
+.square3D {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 5em;
+  height: 5em;
+  background-color: var(--spinner-color);
+  border-radius: 5%;
+
+  animation: spin3D 3s infinite ease-in-out;
+}
+
+@keyframes spin3D {
+  from {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+
+  25% {
+    transform: rotate3d(0, 1, 0, 180deg);
+  }
+
+  50% {
+    transform: rotate3d(0, 0, 1, 180deg);
+  }
+
+  75% {
+    transform: rotate3d(-1, 0, 0, 180deg);
+  }
+
+  to {
+    transform: rotate3d(0, 0, 0, 180deg);
+  }
+}
+
+.square {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 5em;
+  height: 5em;
+  background-color: var(--spinner-color);
+  border-radius: 5%;
+
+  animation: growSpin 3s infinite ease-in-out;
+}
+
+@keyframes growSpin {
+  from {
+    transform: rotate(0deg) scale(0);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1);
+  }
+
+  to {
+    transform: rotate(360deg) scale(0);
+  }
+}
+
+.classic {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 5em;
+  height: 5em;
+  border: 0.5em solid;
+  border-radius: 50%;
+  border-color: var(--spinner-color) transparent transparent transparent;
+
+  animation: rotate 1.5s infinite linear;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
